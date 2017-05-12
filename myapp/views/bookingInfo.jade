@@ -1,0 +1,22 @@
+extends layout
+block content
+ .container
+    .row
+      table.table.talbe-hover.table-bordered.table-striped(style="text-align:center")
+        thead
+          tr(style="text-align:center")
+            th 书名
+            th 课程名
+            th 教师名
+            th 班级
+            th 数量
+            th 价格
+        tbody
+            each booking in bookings
+                tr
+                    td #{booking.bname}
+                    td #{booking.lname}
+                    td #{booking.tname}
+                    td #{booking.class}
+                    td #{booking.num}                    
+                    td #{booking.bprice}

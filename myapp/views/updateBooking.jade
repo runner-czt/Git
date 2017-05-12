@@ -1,0 +1,31 @@
+extends layout
+block content
+  .container
+    .row
+      form.form-horizontal(method="post", action="/updateBooking", name="Book")
+        .form-group
+          label.col-sm-2.control-label(for="bname") bname号
+          .col-sm-10
+            input#bname.form-control(name="bname" value="#{booking.bname}" readonly)
+        .form-group
+          label.col-sm-2.control-label(for="lname") 书名
+          .col-sm-10
+            input#lname.form-control(type="text", name="lname" value="#{booking.lname}")
+        .form-group
+          label.col-sm-2.control-label(for="tname") 出版社
+          .col-sm-10
+            input#tname.form-control(type="text", name="tname" value="#{booking.tname}")
+        .form-group
+          label.col-sm-2.control-label(for="class") 作者
+          .col-sm-10
+            input#class.form-control(type="text", name="class" value="#{booking.class}")
+        .form-group
+          label.col-sm-2.control-label(for="num") 教材单价
+          .col-sm-10
+            input#num.form-control(type="text", name="num" value="#{booking.num}")
+        .form-group
+          label.col-sm-2.control-label(for="bprice") 教材单价
+          .col-sm-10
+            input#bprice.form-control(type="text", name="bprice" value="#{booking.bprice}")
+        
+        button.btn.btn-primary.pull-right(type="submit") 修改

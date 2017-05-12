@@ -1,0 +1,18 @@
+extends layout
+block content
+ .container
+    .row
+      table.table.talbe-hover.table-bordered.table-striped(style="text-align:center")
+        thead
+          tr(style="text-align:center")
+            th 课程代号
+            th 课程名
+            th 类型
+            th 学分
+        tbody
+            each lesson in lessons
+                tr
+                    td #{lesson.lnumber}
+                    td #{lesson.lname}
+                    td #{lesson.ltype}
+                    td #{lesson.credit}

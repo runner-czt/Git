@@ -1,0 +1,22 @@
+extends layout
+block content
+  .container
+    .row
+      form.form-horizontal(method="post", action="/updateLesson", name="lesson")
+        .form-group
+          label.col-sm-2.control-label(for="lnumber") 课程代号
+          .col-sm-10
+            input#lnumber.form-control(name="lnumber" value="#{lesson.lnumber}" readonly)
+        .form-group
+          label.col-sm-2.control-label(for="lname") 课程名
+          .col-sm-10
+            input#lname.form-control(type="text", name="lname" value="#{lesson.lname}")
+        .form-group
+          label.col-sm-2.control-label(for="ltype") 类型
+          .col-sm-10
+            input#ltype.form-control(type="text", name="ltype" value="#{lesson.ltype}")
+        .form-group
+          label.col-sm-2.control-label(for="credit") 学分
+          .col-sm-10
+            input#credit.form-control(type="text", name="credit" value="#{lesson.credit}")
+        button.btn.btn-primary.pull-right(type="submit") 修改

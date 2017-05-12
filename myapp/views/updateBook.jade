@@ -1,0 +1,26 @@
+extends layout
+block content
+  .container
+    .row
+      form.form-horizontal(method="post", action="/updateBook", name="Book")
+        .form-group
+          label.col-sm-2.control-label(for="isbn") ISBN号
+          .col-sm-10
+            input#isbn.form-control(name="isbn" value="#{teaching.isbn}" readonly)
+        .form-group
+          label.col-sm-2.control-label(for="bookname") 书名
+          .col-sm-10
+            input#bookname.form-control(type="text", name="bookname" value="#{teaching.bookname}")
+        .form-group
+          label.col-sm-2.control-label(for="publish") 出版社
+          .col-sm-10
+            input#publish.form-control(type="text", name="publish" value="#{teaching.publish}")
+        .form-group
+          label.col-sm-2.control-label(for="author") 作者
+          .col-sm-10
+            input#author.form-control(type="text", name="author" value="#{teaching.author}")
+        .form-group
+          label.col-sm-2.control-label(for="tprice") 教材单价
+          .col-sm-10
+            input#tprice.form-control(type="text", name="tprice" value="#{teaching.tprice}")
+        button.btn.btn-primary.pull-right(type="submit") 修改

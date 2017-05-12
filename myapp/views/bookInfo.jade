@@ -1,0 +1,20 @@
+extends layout
+block content
+ .container
+    .row
+      table.table.talbe-hover.table-bordered.table-striped(style="text-align:center")
+        thead
+          tr(style="text-align:center")
+            th ISBN号
+            th 书名
+            th 出版社
+            th 作者
+            th 教材单价
+        tbody
+            each teaching in teachings
+                tr
+                    td #{teaching.isbn}
+                    td #{teaching.bookname}
+                    td #{teaching.publish}
+                    td #{teaching.author}
+                    td #{teaching.tprice}

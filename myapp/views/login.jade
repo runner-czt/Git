@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  h1= title
+  p 欢迎来到#{title}
+  style.
+    .container{
+      width:500px;
+    }
+    .form-group{
+      margin:20px auto;
+      height:50px;
+      line-height:50px;
+    }
+    h1,p{
+      text-align:center;
+    }
+    .radio,button{
+      display:inline;
+    }
+  .container
+    form.form-horizontal(method="post" action="/login")
+      .form-group
+        label.col-sm-2.control-label.user(for='userName') 用户ID    
+        .col-sm-10
+          input#userName.form-control(type='text', placeholder='例：201510098249' name="userName" required)
+      .form-group
+        label.col-sm-2.control-label.psw(for='password') 密码 
+        .col-sm-10
+          input#password.form-control(type='password', placeholder='例：123456' name="password" required)
+      .form-group
+          .radio
+            label.col-sm-2.col-sm-offset-2.control-label(for='student') 学生
+             input(type="radio" name="utype" value="学生" id="student" checked)
+          .radio
+            label.col-sm-2.control-label(for='teacher') 教师
+             input(type="radio" name="utype" value="教师" id="teacher")
+          button.btn.btn-default.col-sm-offset-2(type='submit') 登录

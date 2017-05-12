@@ -1,0 +1,46 @@
+extends layout
+block content
+    style.
+        .btn-add{
+            margin:24px 20px 0 0;
+        }
+        .row{
+            margin:20px 0;
+        }
+        
+    .container
+        .row
+            form.form-horizontal(action="/addLesson" method="post")
+                .form-group.col-sm-3
+                    label(for="lnumber") 课程代号
+                    input.form-control(type="text" placeholder="例如：05" required name="lnumber")
+                .form-group.col-sm-3
+                    label(for="lname") 课程名
+                    input.form-control(type="text" placeholder="例如：网页设计" name="lname")
+                .form-group.col-sm-3
+                    label(for="ltype") 类型
+                    input.form-control(type="text" placeholder="例如：必修" name="ltype")
+                .form-group.col-sm-3
+                    label(for="credit") 学分
+                    input.form-control(type="text" placeholder="例如：4" name="credit")
+                button.btn.btn-primary.pull-right.btn-add(type="submit" value="add") 增加
+                //- button.btn.btn-primary.pull-right(type="submit" value="update") 修改
+        .row
+            table.table.talbe-hover.table-bordered.table-striped(style="text-align:center")
+                thead
+                    tr(style="text-align:center")
+                        th 课程代号
+                        th 课程名
+                        th 类型
+                        th 学分
+                        th(colspan="2") 操作
+                tbody
+                    each lesson in lessons
+                        tr
+                            td #{lesson.lnumber}
+                            td #{lesson.lname}
+                            td #{lesson.ltype}
+                            td #{lesson.credit}
+                            td: a.btn.btn-primary(href="../updateLesson?lnumber=#{lesson.lnumber}") 修改
+                            td: a.btn.btn-danger.del(href="../deleteLesson?lnumber=#{lesson.lnumber}") 删除
+

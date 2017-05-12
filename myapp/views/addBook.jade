@@ -1,0 +1,50 @@
+extends layout
+block content
+    style.
+        .add{
+            margin-top:20px;
+        }
+        .row{
+            margin:20px 0;
+        }
+        
+    .container
+        .row
+            form.form-horizontal(action="/addBook" method="post")
+                .form-group.col-sm-3
+                    label(for="isbn") ISBN号
+                    input.form-control(type="text" placeholder="9787115385734" required name="isbn")
+                .form-group.col-sm-3
+                    label(for="bookname") 书名
+                    input.form-control(type="text" placeholder="你不知道的JavaScript上卷" name="bookname")
+                .form-group.col-sm-3
+                    label(for="publish") 出版社
+                    input.form-control(type="text" placeholder="人民邮电出版社" name="publish")
+                .form-group.col-sm-3
+                    label(for="author") 作者
+                    input.form-control(type="text" placeholder="Kyle Simpson" name="author")
+                .form-group.col-sm-3
+                    label(for="tprice") 教材单价
+                    input.form-control(type="text" placeholder="20" name="tprice")
+                .form-group.col-sm-8
+                    button.btn.btn-primary.pull-right.add(type="submit") 增加
+        .row
+            table.table.talbe-hover.table-bordered.table-striped(style="text-align:center")
+                thead
+                    tr(style="text-align:center")
+                        th ISBN号
+                        th 课程名
+                        th 出版社
+                        th 作者
+                        th 教材单价
+                        th(colspan="2") 操作
+                tbody
+                    each teaching in teachings
+                        tr
+                            td #{teaching.isbn}
+                            td #{teaching.bookname}
+                            td #{teaching.publish}
+                            td #{teaching.author}
+                            td #{teaching.tprice}
+                            td: a.btn.btn-primary(href="../updateBook?isbn=#{teaching.isbn}") 修改
+                            td: a.btn.btn-danger.del(href="../deleteBook?isbn=#{teaching.isbn}") 删除

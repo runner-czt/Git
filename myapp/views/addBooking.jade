@@ -1,0 +1,57 @@
+extends layout
+block content
+    style.
+        .add{
+            margin-top:20px;
+        }
+        .row{
+            margin:20px 0;
+        }
+        
+    .container
+        .row
+            form.form-horizontal(action="/addBooking" method="post")
+                .form-group.col-sm-3
+                    label(for="bname") 书名
+                    input.form-control(type="text" placeholder="例如：算法" required name="bname")
+                .form-group.col-sm-3
+                    label(for="lname") 课程名
+                    input.form-control(type="text" placeholder="例如：算法设计" name="lname")
+                .form-group.col-sm-3
+                    label(for="tname") 教师名
+                    input.form-control(type="text" placeholder="例如：陈生" name="tname")
+                .form-group.col-sm-3
+                    label(for="class") 班级
+                    input.form-control(type="text" placeholder="例如：软件2班" name="class")
+                .form-group.col-sm-3
+                    label(for="num") 数量
+                    input.form-control(type="text" placeholder="例如：20" name="num")
+                .form-group.col-sm-3
+                    label(for="bprice") 价格
+                    input.form-control(type="text" placeholder="例如：600" name="bprice")
+                .form-group.col-sm-5
+                    button.btn.btn-primary.pull-right.add(type="submit") 增加
+                    //- button.btn.btn-primary.pull-right(type="submit") 修改
+        .row
+            table.table.talbe-hover.table-bordered.table-striped(style="text-align:center")
+                thead
+                    tr(style="text-align:center")
+                        th 书名
+                        th 课程名
+                        th 教师名
+                        th 班级
+                        th 数量
+                        th 价格
+                        th(colspan="2") 操作
+                tbody
+                    each booking in bookings
+                        tr
+                            td #{booking.bname}
+                            td #{booking.lname}
+                            td #{booking.tname}
+                            td #{booking.class}
+                            td #{booking.num}
+                            td #{booking.bprice}
+                            td: a.btn.btn-primary(href="../updateBooking?bname=#{booking.bname}") 修改
+                            td: a.btn.btn-danger.del(href="../deleteBooking?bname=#{booking.bname}") 删除
+

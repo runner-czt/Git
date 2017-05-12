@@ -1,0 +1,43 @@
+extends layout
+block content
+    style.
+        .myLink{
+            display:none;
+        }
+    .container
+        .row
+            .page-header
+             h1= title
+    .col-md-2
+      .panel-group(id="accordion", role="tablist", aria-multiselectable="true")
+        .panel.panel-default
+          .panel-heading(role="tab", id="lessonInfo")
+            h4.panel-title
+              a.link(url="lessonInfo") 查询课程信息
+        .panel.panel-default.myLink
+          .panel-heading(role="tab", id="addLesson")
+            h4.panel-title
+              a.link(url="addLesson") 修改课程信息
+        .panel.panel-default
+          .panel-heading(role="tab", id="bookInfo")
+            h4.panel-title
+              a.link(url="bookInfo") 查询教材信息
+        .panel.panel-default.myLink
+          .panel-heading(role="tab", id="addBook")
+            h4.panel-title
+              a.link(url="addBook") 修改教材信息
+        .panel.panel-default
+          .panel-heading(role="tab", id="bookingInfo")
+            h4.panel-title
+              a.link(url="bookingInfo") 查询教材征订信息
+        .panel.panel-default.myLink
+          .panel-heading(role="tab", id="addBooking")
+            h4.panel-title
+              a.link(url="addBooking") 修改教材征订信息    
+          
+    iframe.col-md-10(id="content", height="500", style="border:0", src="/welcome")
+    script(src="/js/index.js")
+    if(power)
+        script.
+            var myLinks = $('.myLink');
+            myLinks.css('display', 'block');
